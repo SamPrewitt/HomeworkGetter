@@ -1,0 +1,39 @@
+using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Internal;
+using OpenQA.Selenium.Support.UI;
+
+/// Goes to my Univeristy website to 
+/// grab my homework and put it in 
+/// Google Calandar. 
+/// @author Sam Prewitt
+/// @version 10.20.2020
+
+namespace Program1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Url = "https://asulearn.appstate.edu/";
+
+            String Title = driver.Title;
+            Console.WriteLine(Title);
+
+            IWebElement element = driver.FindElement(By.LinkText("ASU log in"));
+            element.Click();
+
+            String userName = ("******************");
+            String password = ("******************");
+
+            IWebElement userNameTB = driver.FindElement(By.Id("username"));
+            userNameTB.SendKeys(userName);
+
+            IWebElement passwordTB = driver.FindElement(By.Id("password"));
+            passwordTB.SendKeys(password + "\n");
+
+        }
+    }
+}
