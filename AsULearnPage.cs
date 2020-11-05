@@ -1,3 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Program1
 {
-////holds all XPaths, etc. for https://asulearn.appstate.edu/
+    class AsULearnPage
+    {
+        //holds all XPaths, etc. for https://asulearn.appstate.edu/
+
+
+    }
 }
