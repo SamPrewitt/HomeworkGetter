@@ -30,9 +30,9 @@ namespace Program1
             IWebElement element = driver.FindElement(By.LinkText("ASU log in"));
             element.Click();
 
-            String userName = ("");
-            String userName2 = ("");
-            String password = ("");
+            String userName = ("*****");
+            String userName2 = ("*****");
+            String password = ("*****");
 
             IWebElement userNameTB = driver.FindElement(By.Id("username"));
             userNameTB.SendKeys(userName);
