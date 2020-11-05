@@ -10,9 +10,9 @@ using OpenQA.Selenium.Support.UI;
 /// @author Sam Prewitt
 /// @version 10.20.2020
 
-namespace Program1
+namespace Driver
 {
-    class Program
+    class Driver
     {
         static void Main(string[] args)
         {
