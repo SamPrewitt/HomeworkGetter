@@ -40,6 +40,24 @@ namespace Driver
             IWebElement passwordTB = driver.FindElement(By.Id("password"));
             passwordTB.SendKeys(password + "\n");
 
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            
+            try
+                {
+                    IWebElement assignment = driver.FindElement(By.XPath("//*[@id='yui_3_17_2_1_1604991256770_51']"));
+                    assignment.Click();
+                } catch (NoSuchElementException e)
+                {
+                    // I don't actually understand why assignment works but throws a NoSuchElementException. 
+                    // There is an element because Selenium actually clicks on it...
+                    // This try/catch prevents the program from crashing. 
+                }
+            
+            // NEEDS to be updated.
+            String className = driver.FindElement(By.PartialLinkText("C S2450-101_INTRO TO COMPUTER SYSTEMS (FALL 2020)")).Text;
+            
+            
+            
             calDriver.Url = "https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin";
             calDriver.Manage().Window.Maximize();
 
@@ -59,6 +77,9 @@ namespace Driver
             element3 = calDriver.FindElement(By.XPath("/html/body/div[2]/div[1]/div[1]/div[1]/button/span[2]"));
             element3.Click();
 
+            element3 = calDriver.FindElement(By.XPath("//*[@id='yDmH0d']/div/div/div[2]/span/div/div[1]/div[3]/div[1]/div[1]/div/div[1]/div/div[1]/input"));
+            element3.SendKeys(className + "\n");
+            
             driver.Close();
             calDriver.Close();
 
